@@ -1,0 +1,67 @@
+<div class="page-container">
+  <!-- Card principal -->
+  <div class="card">
+    <h2 class="card-title">Cadastro de Corrida</h2>
+
+   <form (ngSubmit)="cadastrarCorrida()">
+      
+      <!-- Descrição da Corrida -->
+      <div class="form-group">
+        <label for="descricao">Descrição da Corrida</label>
+        <textarea
+          id="descricao"
+          name="descricao"
+          [(ngModel)]="corrida.descricao"
+          placeholder="Ex: 5ª Maratona Noturna da Cidade"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <!-- Data da Corrida -->
+      <div class="form-group">
+        <label for="dataCorrida">Data da Corrida</label>
+        <input
+          type="date"
+          id="dataCorrida"
+          name="dataCorrida"
+          [(ngModel)]="corrida.data"
+        />
+      </div>
+
+      <!-- Distâncias Disponíveis -->
+      <div class="form-group">
+        <label>Distâncias Disponíveis</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input
+              type="checkbox"
+              name="distancia5k"
+              [(ngModel)]="corrida.distancias.d5k"
+            />
+            5km
+          </label>
+          <label class="checkbox-item">
+            <input
+              type="checkbox"
+              name="distancia10k"
+              [(ngModel)]="corrida.distancias.d10k"
+            />
+            10km
+          </label>
+          <label class="checkbox-item">
+            <input
+              type="checkbox"
+              name="distancia25k"
+              [(ngModel)]="corrida.distancias.d25k"
+            />
+            25km
+          </label>
+        </div>
+      </div>
+
+      <!-- Botão de Ação -->
+      <button type="submit" class="btn-primary">Cadastrar Corrida</button>
+
+    </form>
+  </div>
+</div>

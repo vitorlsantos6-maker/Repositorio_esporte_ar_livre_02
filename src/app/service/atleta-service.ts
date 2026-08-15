@@ -27,8 +27,8 @@ export class AtletaService {
   remover(posicaoArray: number){
     this.atletas.splice(1,posicaoArray)
   }
-  remover2(pesssoa: Pessoa){
-    this.atletas = this.atletas.filter(elem => elem.id !== Pessoa.id)
+  remover2(pessoa: Pessoa){
+  this.atletas = this.atletas.filter(elem => elem.id !== pessoa.id)
   }
 
   alterar(pessoa : Pessoa){

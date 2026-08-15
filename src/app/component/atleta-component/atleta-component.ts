@@ -33,13 +33,13 @@ export class AtletaComponent {
     pessoaAtleta.nome = this.nome
     pessoaAtleta.cpf = this.cpf
     pessoaAtleta.sexo = this.sexo
-    pessoaAtleta.cep = this.cep
+    pessoaAtleta.cep = Number(this.cep)
     pessoaAtleta.ruaLogradoro = this.ruaLogradouro
     pessoaAtleta.bairro = this.bairro
     pessoaAtleta.cidade = this.cidade
     pessoaAtleta.uf = this.uf
 
-    this.atletaService.addicionar(pessoaAtleta)
+   this.atletaService.adicionar(pessoaAtleta);
     
     this.atletaService.listar()
 
@@ -48,9 +48,9 @@ export class AtletaComponent {
 
   limparAtributos() {
     this.nome = ''
-    this.cpf = 0
+    this.cpf = '';
     this.sexo = ''
-    this.cep = 0
+    this.cep = '';
     this.ruaLogradouro = ''
     this.bairro = ''
     this.cidade = ''
