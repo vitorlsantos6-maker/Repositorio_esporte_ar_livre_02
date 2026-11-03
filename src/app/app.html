@@ -1,4 +1,25 @@
-<!-- ✅ Depois: -->
-<app-menu-component></app-menu-component>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-warning" routerLink="/catalogo">
+      Estética & Bem-Estar
+    </a>
+    
+    <div class="navbar-nav ms-auto flex-row gap-3 align-items-center">
+      <a class="nav-link text-white" routerLink="/catalogo">Catálogo</a>
+      <a class="nav-link text-white" routerLink="/cadastro-cliente">Cadastrar-se</a>
+      
+      <!-- Separador visual para o Painel Admin -->
+      <span class="text-secondary d-none d-md-inline">|</span>
+      
+      <a class="nav-link text-info" routerLink="/admin/entrada-produto">Entrada Estoque</a>
+      <a class="nav-link text-info" routerLink="/admin/estoque">Estoque</a>
+      <a class="nav-link text-info" routerLink="/admin/pedidos">Gestão Pedidos</a>
+      
+      <a class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1 ms-2" routerLink="/carrinho">
+        <span>Carrinho</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>

@@ -1,0 +1,40 @@
+<div class="container my-4">
+  <h2>Painel Administrativo — Entrada de Produtos</h2>
+  <p class="text-muted">Registe a entrada de mercadorias no estoque.</p>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()" class="card p-4 shadow-sm mt-3">
+    <div class="mb-3">
+      <label class="form-label fw-bold">Produto</label>
+      <select class="form-select" formControlName="idItem">
+        <option value="">Selecione um produto...</option>
+        <option *ngFor="let p of produtos" [value]="p.idItem">
+          #{{ p.idItem }} - {{ p.nome }}
+        </option>
+      </select>
+      <div *ngIf="form.get('idItem')?.invalid && form.get('idItem')?.touched" class="text-danger small mt-1">
+        Por favor, selecione um produto.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label class="form-label fw-bold">Quantidade Recebida</label>
+        <input type="number" class="form-control" formControlName="quantidade" min="1">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label fw-bold">Unidade</label>
+        <input type="text" class="form-control" formControlName="unidade" placeholder="Ex: UN, CX, KG">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label fw-bold">Valor Unitário de Entrada (R$)</label>
+        <input type="number" step="0.01" class="form-control" formControlName="valorUnitarioEntrada">
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <button type="submit" class="btn btn-success fw-bold" [disabled]="salvando || form.invalid">
+        {{ salvando ? 'A guardar...' : 'Registrar Entrada' }}
+      </button>
+    </div>
+  </form>
+</div>

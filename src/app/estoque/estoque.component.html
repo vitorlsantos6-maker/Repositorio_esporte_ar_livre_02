@@ -1,0 +1,59 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Painel Administrativo — Gestão de Estoque</h2>
+    <button class="btn btn-outline-primary btn-sm" (click)="carregarEstoque()">Atualizar Dados</button>
+  </div>
+
+  <!-- Campo de Pesquisa -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Pesquisar por nome ou categoria..." 
+        [(ngModel)]="filtroNome" 
+        (input)="filtrar()"
+      >
+    </div>
+  </div>
+
+  <div *ngIf="carregando" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <!-- Tabela de Estoque -->
+  <div *ngIf="!carregando" class="table-responsive shadow-sm rounded">
+    <table class="table table-hover align-middle bg-white mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Item</th>
+          <th>Categoria</th>
+          <th>Preço Venda</th>
+          <th>Qtd. Estoque</th>
+          <th>Unidade</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itensFiltrados">
+          <td><strong>#{{ item.idItem }}</strong></td>
+          <td>{{ item.nomeItem }}</td>
+          <td><span class="badge bg-secondary">{{ item.categoria }}</span></td>
+          <td>{{ item.precoVenda | currency:'BRL':'symbol':'1.2-2' }}</td>
+          <td>
+            <span [ngClass]="{'text-danger fw-bold': item.quantidadeEstoque <= 5, 'text-success fw-bold': item.quantidadeEstoque > 5}">
+              {{ item.quantidadeEstoque }}
+            </span>
+          </td>
+          <td>{{ item.unidade }}</td>
+          <td>
+            <span class="badge" [ngClass]="item.ativo ? 'bg-success' : 'bg-danger'">
+              {{ item.ativo ? 'Ativo' : 'Inativo' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

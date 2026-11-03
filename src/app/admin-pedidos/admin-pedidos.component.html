@@ -1,0 +1,56 @@
+<div class="container my-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Painel Administrativo — Gestão de Pedidos</h2>
+    <button class="btn btn-outline-primary btn-sm" (click)="carregarTodosPedidos()">Atualizar Lista</button>
+  </div>
+
+  <div *ngIf="carregando" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!carregando && pedidos.length === 0" class="alert alert-info">
+    Nenhum pedido registado no sistema até ao momento.
+  </div>
+
+  <div *ngIf="!carregando && pedidos.length > 0" class="table-responsive shadow-sm rounded">
+    <table class="table table-hover align-middle bg-white mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th># Pedido</th>
+          <th>ID Cliente</th>
+          <th>Data</th>
+          <th>Total</th>
+          <th>Status Atual</th>
+          <th>Alterar Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pedidos">
+          <td><strong>#{{ p.idAtendimento }}</strong></td>
+          <td>Cliente #{{ p.idPessoa }}</td>
+          <td>{{ p.dataAtendimento | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td><strong>{{ p.valorTotal | currency:'BRL':'symbol':'1.2-2' }}</strong></td>
+          <td>
+            <span class="badge" [ngClass]="{
+              'bg-warning text-dark': p.status === 'Aberto',
+              'bg-info text-dark': p.status === 'Em processamento',
+              'bg-success': p.status === 'Concluido',
+              'bg-danger': p.status === 'Cancelado'
+            }">
+              {{ p.status }}
+            </span>
+          </td>
+          <td style="width: 220px;">
+            <select 
+              class="form-select form-select-sm" 
+              [ngModel]="p.status" 
+              (ngModelChange)="alterarStatus(p, $event)"
+            >
+              <option *ngFor="let st of statusOpcoes" [value]="st">{{ st }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

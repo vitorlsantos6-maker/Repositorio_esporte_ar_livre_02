@@ -1,0 +1,17 @@
+.item-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.bg-purple {
+  background-color: #6f42c1;
+  color: #ffffff;
+}
+
+.card-title {
+  min-height: 2.5rem;
+}
