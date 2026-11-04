@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { ApiService } from '../api.service';
-import { CarrinhoService } from '../carrinho.service';
+// Subindo apenas 1 nível (../) para encontrar os serviços em src/app/service/
+import { ApiService } from '../api.service'; 
+import { CarrinhoService } from '../carrinho.service'; 
+
+// Subindo 2 níveis (../../) para encontrar os models em src/app/models/
 import { Item, Categoria } from '../../models/models';
 
 @Component({
   selector: 'app-catalogo',
-  standalone: true, // Habilita o modo standalone
-  imports: [CommonModule, FormsModule], // Importa as diretivas *ngIf, *ngFor, [(ngModel)], ngClass e Pipes
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })

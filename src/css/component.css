@@ -1,0 +1,102 @@
+.diagrama-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #374151;
+}
+
+/* Blocos Principais */
+.bloco {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.bloco h3 {
+  margin: 8px 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.subtitulo {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.icone {
+  font-size: 1.5rem;
+  display: block;
+}
+
+/* Bloco Frontend */
+.bloco-frontend {
+  background-color: #edf4f0;
+  border: 1px solid #d1e2d7;
+  color: #23382b;
+}
+
+/* Cartões dos Módulos */
+.modulos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cartao-modulo {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.cartao-modulo h4 {
+  margin: 8px 0 4px 0;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.cartao-modulo p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+/* Bloco API */
+.bloco-api {
+  background-color: #eef2ff;
+  border: 1px solid #dbebe2;
+  color: #1e293b;
+}
+
+/* Bloco Banco de Dados */
+.bloco-bd {
+  background-color: #fff7ed;
+  border: 1px solid #ffedd5;
+  color: #431407;
+}
+
+/* Setas de Conexão */
+.seta-conexao {
+  text-align: center;
+  padding: 12px 0;
+  color: #6b7280;
+}
+
+.seta-conexao span {
+  font-size: 1.2rem;
+  display: block;
+  font-weight: bold;
+}
+
+.seta-conexao small {
+  font-size: 0.75rem;
+}
